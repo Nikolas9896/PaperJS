@@ -10,40 +10,45 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
         // Create a Paper.js Path to draw a line into it:
-      
-        var sound1 = new Howl({
-            urls: ['sounds/bubbles.mp3']
-        }); 
-        var sound2 = new Howl({
-            urls: ['sounds/clay.mp3']
-        });
+        
+        var keyData = {
+            a: {
+                color: "purple",
+                sound: new Howl({
+                    urls: ['sounds/bubbles.mp3']
+                    })
+            },
+            s: {
+                color: "green",
+                sound: new Howl({
+                    urls: ['sounds/clay.mp3']
+                })
+                
+            },
+            d: {
+                color: "yellow",
+                sound: new Howl({
+                    urls: ['sounds/confetti.mp3']
+                })
+            }
+        }
 
         var circles = [];
         //for analizing keypress
        function onKeyDown(event)
        {
-       
-        var maxPoint = new Point(view.size.width, view.size.height);
-        var randomPoint = Point.random();
-        var point = maxPoint * randomPoint;
-        var newCircle = new Path.Circle(new Point(point), 300);
-        //check which one key pressed.
-         if(event.key ==="a")
+        if(keyData[event.key])
         {
-            sound1.play();
-            newCircle.fillColor = "#2c3e50";
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var point = maxPoint * randomPoint;
+            var newCircle = new Path.Circle(new Point(point), 300);
+            newCircle.fillColor = keyData[event.key].color;
+            keyData[event.key].sound.play();
+            circles.push(newCircle);
         }
-        if(event.key === "s")
-        {
-            sound2.play();
-            newCircle.fillColor = "#16a085";
-        }
-        else {
-            newCircle.fillColor = "orange";
-        }
-
+          
         
-        circles.push(newCircle);
 
        }
 
