@@ -10,15 +10,13 @@
     <script type="text/paperscript" canvas="myCanvas">
 	    	// Create a Paper.js Path to draw a line into it:
 		
-		var arr = [];
-		var tenX = 0;
-		var tenY = 0;
-		for(var i = 0; i<=10; i++)
-		{ 
-			arr.push(new Path.Circle(new Point(tenX, tenY), 10));
-			arr[i].fillColor = 'green';
-			tenX+=100;
-			
+		for(var x = 0; x < 1000; x+=100)
+		{
+			for(var y =0; y < 1000; y+=100)
+			{ 
+				var circle = new Path.Circle(new Point(x, y), 10);
+				circle.fillColor = 'green';
+			}
 		}
 
     </script>
