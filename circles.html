@@ -11,7 +11,10 @@
         // Create a Paper.js Path to draw a line into it:
        function onKeyDown(event)
        {
-        new Path.Circle(new Point(100, 100), 10).fillColor = 'orange';;
+        var maxPoint = new Point(view.size.width, view.size.height);
+        console.log(maxPoint);
+        new Path.Circle(new Point(maxPoint), 10).fillColor = 'orange';
+
        }
         
 
