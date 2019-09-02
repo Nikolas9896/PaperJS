@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/circles.css">
+    <script type="text/javascript" src="lib/paper-full.js"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+	    	// Create a Paper.js Path to draw a line into it:
+		
+		var arr = [];
+		var tenX = 0;
+		var tenY = 0;
+		for(var i = 0; i<=10; i++)
+		{ 
+			arr.push(new Path.Circle(new Point(tenX, tenY), 10));
+			arr[i].fillColor = 'green';
+			tenX+=100;
+			
+		}
+
+    </script>
+    
+</head>
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+</html>
